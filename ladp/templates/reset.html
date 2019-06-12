@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}LDAP | Generate OTP Form{% endblock %}
+{% block form_title %}
+    <h1><strong>ShopClues Ldap</strong> Generate OTP Form</h1>
+{% endblock %}
+        <p>
+            Your new password must be 8 characters long or longer and have at least:<br>
+            one capital letter, one special character, one lowercase letter, & one number.<br>
+            You must use a new password, your current password<br>
+            can not be the same as your new password.<br>
+        </p>
+{% block form_top %}
+    <h3>ShopClues LDAP Generate OTP</h3>
+    <p>Reset your ShopClues LDAP password using this form:</p>
+{% endblock %}
+{% block main_content %}
+    <div class="form-bottom reset-form">
+        <form role="form" method="POST" class="login-form">
+            <div class="form-group">
+                <label class="sr-only" for="empID">EmpID</label>
+                <input type="text" name="empID" placeholder="Employee ID" class="form-username form-control" id="emp-id">
+            </div>
+            <button type="submit" class="btn btn-primary">Send OTP</button>
+        </form>
+    </div> <!-- div form-bottom -->
+{% endblock %}

@@ -1,0 +1,104 @@
+@charset "utf-8";
+/* CSS Documented by Abhishek Srivastava */
+
+@import url(fonts/fonts.css);
+
+/*** global css ***/
+*{outline:none;}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {display: block;}
+ol, ul {list-style: none; margin:0px; padding:0px;}
+h1,h2,h3,h4,p{ margin:0px; padding:0px; font-weight:normal;}
+a{ text-decoration:none; color:#888;}
+a:hover{ color:#333;}
+.clearfix:after, .clearfix:before{clear: both;width:100%;content:' ';display:block;}
+body{ font:normal 14px/19px 'robotoregular'; background:#fff; margin:0px; padding:0px; color:#333;}
+body.login-body{ background:#414141;}
+.content{ width:100%; max-width:1100px; margin:0px auto;}
+.boxsize{ box-sizing:border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box;}
+
+/*** grid css */
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-13, .col-xs-14, .col-xs-15 {float: left;box-sizing: border-box}.col-xs-1 {width: 8.33333333%;}.col-xs-2 {width: 16.66666667%;}.col-xs-3 {width: 25%;}.col-xs-4 {width: 33.33333333%;}.col-xs-5 {width: 41.66666667%;}.col-xs-6 {width: 50%;}.col-xs-7 {width: 58.33333333%;}.col-xs-8 {width: 66.66666667%;}.col-xs-9 {width: 75%;}.col-xs-10 {width: 83.33333333%;}.col-xs-11 {width: 91.66666667%;}.col-xs-12 {width: 100%;}.col-xs-13 {width: 25%;}.col-xs-14 {width: 13%;}.col-xs-15 {width: 63%;}
+
+
+/*** login ***/
+.login{ max-width:370px; width:100%; margin:auto; position:absolute; left:0px; right:0px; bottom:0px; top:0px; height:300px; border-radius:4px;}
+.login .logo{ background:url(images/logo.png) no-repeat left top; width:211px; height:59px; margin:0px auto; margin-bottom:10px;}
+.login-box{ background:rgba(255, 255, 255, 0.9); padding:10px 15px; border-radius:5px;}
+.input-box{ margin:25px 0px; position:relative;}
+.input-box:after {position: absolute;left: 0px; top: 10px; height: 25px; width: 25px;background: url(images/login_sprite.png) no-repeat 0px 0px; content: '';}
+.input-box.uname:after {background-position: 0px 1px;}
+.input-box.pwd:after {background-position: 0px -71px;}
+.input-box input[type=text], .input-box input[type=password]{ width:100%; background:transparent;  box-sizing:border-box; border:0px; border-bottom:1px solid #dbdbdb; padding:15px 10px 15px 35px; font-size:16px;}
+.login-footer input[type=button], .login-footer button{border-radius: 2px;background-color: rgb(74, 178, 203); height: 43px; border:0px; width:100%; color:#fff; font-size:16px;}
+
+
+/********** pages ***********/
+
+/* header */
+header{ height:50px; padding:10px 0px;}
+.logo_inner { float: left; width: 185px; margin: 10px 0px 0px; position: relative; height: 35px;}
+.right_sec{ float:right; padding-top:7px;}
+.right_sec a{ color:#17A6B2;}
+.app_name{ background:url(images/bg_texture.jpg) repeat-x 0px 0px; height:60px;}
+.app_name h1{ font:normal 26px/60px 'robotothin'; color:#fff; text-shadow: 0px 2px 1px rgba(0, 0, 0, 0.35);}
+
+/**content area **/
+.tabs{ padding:20px 0px 0px;}
+.tabs ul{ list-style:none; border-bottom:1px solid #ccc;}
+.tabs li{ display:inline-block; margin-right:15px;}
+.tabs li a{  padding:10px 30px 10px 0px; display:block; font:normal 20px 'robotolight';}
+.tabs li.active a{ color:#2b8787; border-bottom:2px solid #2b8787;}
+.tabs li a{}
+.alert_box{ padding:0px;}
+.alert_box label{ text-align:right; display:block; position: relative;top: 10px; padding-right: 10px;  font:normal 16px 'robotolight'; color:#6b6a6a;}
+.alert_box label span{color: #FF0000; font:normal 16px arial; padding-right: 5px;}
+.alert_box input[type="text"], .alert_box select, .alert_box input[type="password"]{ width:100%; box-sizing:border-box; padding:12px; border-radius:4px; border:1px solid #ccc; box-shadow:0px 0px 2px #ccc inset; color:#6b6a6a; -webkit-appearance: none; -moz-appearance: none; -moz-appearance: none;}
+.alert_box select{ padding:11.7px 12px; background:url(images/arrow.png) no-repeat 99% -11px;}
+.alert_box>#submit_form>.col-xs-12{ margin-bottom:15px;}
+.alert_box input[type="text"]:focus, .alert_box select:focus, .alert_box input[type="password"]:focus{ border:1px solid #17A6B2; box-shadow:0px 0px 2px #ddd; -webkit-transition: all 0.25s; -moz-transition: all 0.25s; transition: all 0.25s;}
+.change_select{ border:0px !important; float:right; box-shadow:none !important; border-radius:0px !important; width:auto !important;  margin-bottom:10px; text-align:right;  background:url(images/arrow.png) no-repeat 99% 15px !important; padding-right:30px !important;}
+.radiobtn input[type="radio"]{ display:none;}
+.radiobtn label{ display:inline-block; padding-left:25px; position:relative; margin-right:10px;}
+.radiobtn label:before{ content:''; width:16px; height:16px; border-radius:50%; border:1px solid #ccc; position:absolute; left:0px; top:1px; box-sizing:border-box; -webkit-transition: all 0.25s; -moz-transition: all 0.25s; transition: all 0.25s;}
+.radiobtn input[type="radio"]:checked + label:before{ background:#17A6B2; border:4px solid #f7f7f7; box-shadow:0px 0px 2px #797373;}
+.email_field{ display:flex;}
+.email_field .plus, .email_field .minus{ width:30px; height:30px; background:#fff; border:1px solid #ccc; border-radius:50%; font-size:18px; color:#777; margin-top:5px;}
+.email_field .plus{}
+.email_field .minus{ margin-left:5px; margin-right:5px;}
+.email_field .rest_dv{ flex:1;}
+.multiple_fields{ display:flex;}
+.multiple_fields select{ width:100px;}
+.multiple_fields input[type="text"]{ flex:1; margin-left:10px;}
+.note{ margin-top:40px; font:italic 14px 'robotolight'; border-bottom:1px solid #e4e4e4; padding:5px; color:#555;}
+.note1{ margin-bottom:-40px; margin-top:40px; color:#6b6a6a;}
+.check_box_area{ padding:10px 0px; color:#6b6a6a;}
+.check_box_area input[type="checkbox"]{ display:none;}
+.check_box_area label{ margin-right:30px; padding-left:25px; position:relative; padding-top:1px; margin-bottom: 10px; display: inline-block;}
+.check_box_area label:before{ content:''; width:16px; height:16px; position:absolute; left:0px; top:0px; border:1px solid #ccc; text-align:center;}
+.check_box_area input[type="checkbox"]:checked + label:before{ background:#fff; content:'\02713'; font-weight:bold;}
+.table{ border-top:1px solid #ccc; border-left:1px solid #ccc;}
+.table th,.table td{ border-bottom:1px solid #ccc; border-right:1px solid #ccc; padding:10px;}
+.table th{ background:#FFFEDA;}
+
+/** Fotter **/
+footer{ margin-top:40px;}
+footer .content{ border-top:1px solid #ccc; padding:20px 0px; text-align:right;}
+footer input[type=button], footer input[type=submit]{background-color: rgb(74, 178, 203); height: 43px; border:0px;  color:#fff; font-size:16px; padding:0px 30px; cursor:pointer;}
+
+@media all and (max-width:480px) {
+	.con_area, .app_name{ padding:0px 10px;}
+	header{ padding:10px;}
+	.alert_box>#submit_form>.col-xs-12>.col-xs-6{ width:100%;}
+	.alert_box>#submit_form>.col-xs-12>.col-xs-6:first-child{ margin-bottom:10px;}
+	.alert_box>#submit_form>.col-xs-12>.col-xs-6>.col-xs-6{ width:66.66666667%;}
+	#create_form .alert_box>.col-xs-12>.col-xs-6{ width:100%;}
+	#create_form .alert_box>.col-xs-12>.col-xs-6:first-child{ margin-bottom:10px;}
+		#create_form .alert_box>.col-xs-12>.col-xs-6>.col-xs-6{ width:66.66666667%;}
+	footer input[type=button]{ margin-right:10px;}
+	.check_box_area label{ width:100px;}
+	.radiobtn label{ display:block; text-align:left; margin-bottom:10px;}
+	.alert_box label{ font-size:15px;}
+	.app_name{ height:50px;}
+	.app_name h1{ font-size:21px; line-height:50px;}
+}

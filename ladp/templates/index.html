@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block title %}LDAP | Password Change Form{% endblock %}
+{% block form_title %}
+    <h1><strong> SHOPCLUES </strong> Change Password Form</h1>
+{% endblock %}
+{% block form_top %}
+    <h3>Shopclues LDAP Change Password</h3>
+    <p>Change your LDAP password using this form:</p>
+{% endblock %}
+{% block extra_content %}
+    <div class="description">
+        <p>
+            Your new password must be 8 characters long or longer and have at least:<br>
+            one capital letter, one special character, one lowercase letter, & one number.<br>
+            You must use a new password, your current password<br>
+            can not be the same as your new password.<br>
+        </p>
+    </div>
+{% endblock %}
+{% block main_content %}
+    <div class="form-bottom reset-form">
+        <form role="form" method="POST" class="login-form">
+            <div class="form-group">
+                <label class="sr-only" for="empID">EmpID</label>
+                <input type="text" name="empID" placeholder="Employee ID" class="form-username form-control" id="emp-id">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="curPwd">Current Password</label>
+                <input type="password" placeholder="Current Password" name="curPwd" class="form-password form-control" id="cur-pwd">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="newPwd">New Password</label>
+                <input type="password" placeholder="New Password" name="newPwd" class="form-password form-control" id="new-pwd">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="newPwdAgain">New Password (again)</label>
+                <input type="password" placeholder="New Password (again)" name="newPwdAgain" class="form-password form-control" id="new-pwd-again">
+            </div>
+            <button type="submit" class="btn btn-primary">Change Password</button>
+            <a href="/password/otp" class="btn btn-warning">Forgot Password</a>
+        </form>
+    </div> <!-- div form-bottom -->
+{% endblock %}

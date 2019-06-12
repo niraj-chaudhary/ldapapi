@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Change Password</title>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style_1.css') }}">
+    </head>
+    <body>
+        <div id="container">
+            <div class="title">
+                <h1>POST request For Change Password</h1>
+            </div>
+            <div id="content">
+                <form method="post" action="{{ url_for('changePassword') }}">
+                  <label for="username">Please enter your name:</label>
+                  <input type="text" name="username" /><br />
+                  <label for="password">Please enter your password:</label>
+                  <input type="password" name="password"/><br />
+                  <label for="npassword">Please enter your new password:</label>
+                  <input type="password" name="password"/><br />
+                  <input type="submit" />
+                </form>
+            </div>
+            <div class="title">
+                <h1>shopclues.com</h1>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>
+

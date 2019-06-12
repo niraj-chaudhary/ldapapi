@@ -1,0 +1,128 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style_1.css') }}">
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+      </head>
+    <header>
+        <div class="logo_inner"><img src="https://www.shopclues.com/blog/wp-content/uploads/2018/08/SC_Black.png" width="100%" alt=""/></div>
+        </header>
+
+    <body>
+    
+    <!--<div style="margin-left:30%;margin-right:30%;background-color:#D5FFFC;color:black;padding:20px;"> -->
+     
+<br>
+<div id="container">
+            <div class="title">
+                <h1>Add user to group</h1><h1 align="right"><a href='/logout'>Logout</a></h1>
+            </div>
+
+<section class="con_area clearfix">
+  <div class="content">
+    <div class="tabs">
+      <ul>
+    {% if priviledge|string() == 'True' %}
+        {% if motive|string() == 'add' %}
+        <li><a href="/addu">Add User</a></li>
+        <li ><a href="cpw">Change Password</a></li>
+        <li class="active"><a href="/addg">Add User to group</a></li>
+        <li ><a href="/delg">Delete user from group</a></li>
+        <li ><a href="/modg">Modify user from group</a></li>
+
+        {% elif motive|string() == "del" %}
+        <li><a href="/addu">Add User</a></li>
+        <li ><a href="cpw">Change Password</a></li>
+        <li ><a href="/addg">Add User to group</a></li>
+        <li class="active"><a href="/delg">Delete user from group</a></li>
+        <li ><a href="/modg">Modify user from group</a></li>
+        
+        {% elif motive|string() == "mod" %}
+        <li><a href="/addu">Add User</a></li>
+        <li ><a href="cpw">Change Password</a></li>
+        <li ><a href="/addg">Add User to group</a></li>
+        <li ><a href="/delg">Delete user from group</a></li>
+        <li class="active"><a href="/modg">Modify user from group</a></li>
+        {% endif %}
+      {% else %}
+        {% if motive|string() == 'add' %}
+        <li class="active"><a href="/addg">Add User to group</a></li>
+        <li ><a href="/delg">Delete user from group</a></li>
+        <li ><a href="/modg">Modify user from group</a></li>
+
+        {% elif motive|string() == "del" %}
+        <li ><a href="/addg">Add User to group</a></li>
+        <li class="active"><a href="/delg">Delete user from group</a></li>
+        <li ><a href="/modg">Modify user from group</a></li>
+        
+        {% elif motive|string() == "mod" %}
+        <li ><a href="/addg">Add User to group</a></li>
+        <li ><a href="/delg">Delete user from group</a></li>
+        <li class="active"><a href="/modg">Modify user from group</a></li>
+        {% endif %}
+      {% endif %}
+      </ul>
+    </div>
+</div>
+</section>
+
+    {% if motive|string() == 'add' %}
+    <form action="http://ldap-login.shopclues.com/addgrp" method="post">
+    {% elif motive|string() == 'del' %}
+    <form action="http://ldap-login.shopclues.com/delgrp" method="post">
+    {% elif motive|string() == "mod" %}
+    <form action="http://ldap-login.shopclues.com/modgrp" method="post">
+    {% endif %}
+
+     <div align="center">
+      <br>
+
+    {% if motive|string() == "mod" %}
+    Replacing employee id
+    <input name="empid1" type="text" > &nbsp
+    Replaced employee id
+    <input name="empid2" type="text" >
+    {% else %}
+    Enter employee id
+    <input name="empid" type="text" >
+    {% endif %}
+        
+      <label><input type="checkbox" class="checkbox" name="presence" value="presence"> User presence<br></label></div>
+     <div class="checkbox">
+     <table class="shadow table table-hover table table-sm" style="background-color:#D5FFFC; border-radius: 15px ">
+
+
+{{table_rows | safe}}
+
+
+              </table>
+        {% if motive|string() == 'del' %}
+        <script>
+                function confSubmit(form) {
+                if (confirm("Are you sure you want to delete users from selected group(s)?")) {
+                  form.submit();
+                }
+
+                else {
+                alert("You decided not to delete");
+                }
+                }
+                </script>
+                <input type="button" onClick="confSubmit(this.form);" value="Delete">
+        {% else %}
+        <input type="submit" >
+        {% endif %}
+        </div>
+
+          <br>
+         <div class="title">
+         <h1>shopclues.com</h1>
+        
+    
+        </form>
+        </body>
+        </html>

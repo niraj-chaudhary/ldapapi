@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block title %}LDAP | OTP VeriFication Form{% endblock %}
+{% block form_title %}
+    <h1><strong>OTP</strong> Verification Form</h1>
+{% endblock %}
+{% block form_top %}
+    {% if verified %}
+    <h3>LDAP OTP Verification</h3>
+    <p>Verify your LDAP OTP using this form:</p>
+    {% else %}
+    <h3>Verification Failed</h3>
+    <p>Invalid Employee ID and key combination.</p>
+    {% endif %}
+{% endblock %}
+{% block main_content %}
+    {% if verified %}
+    <div class="form-bottom reset-form">
+        <form role="form" method="POST" class="login-form">
+	    <button id="Resend-otp" name="Resend-otp"  style="margin-left:75%; width:25%; margin-bottom:20px;">Resend Otp</button>
+            <span id="otp-haseen-sent" style="display: none; color : #ff770b; margin-bottom: 10px;"> OTP has been Sent Again</span>
+            <div class="form-group">
+                <label class="sr-only" for="newPwd">Employee ID:</label>
+                <input type="hidden"placeholder="Employee ID" value="{{ empID }}" name="empID" class="form-password form-control" id="new-pwd">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="empID">EmpID</label>
+                <input type="text" name="OTP" placeholder="Enter OTP" class="form-username form-control" id="otp-id">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Otp</button>
+
+        </form>
+    </div> <!-- div form-bottom -->
+    {% endif %}
+{% endblock %}
+
