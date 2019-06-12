@@ -1,0 +1,58 @@
+node{
+    stage('checkout'){
+    def svnUrl = input(
+    id: 'svnUrl', message: 'Let\'s Get Svn Url', parameters: [
+    [$class: 'TextParameterDefinition', defaultValue: 'dev_env/trunk ', description: 'Environment', name: 'trunk url']
+    ])
+    //echo ("Env: "+svnUrl)
+    println(svnUrl)
+    checkout([$class: 'SubversionSCM', additionalCredentials: [], excludedCommitMessages: '', excludedRegions: '', excludedRevprop: '', excludedUsers: '', filterChangelog: false, ignoreDirPropChanges: false, includedRegions: '', locations: [[cancelProcessOnExternalsFail: true, credentialsId: '1942772f-87d7-4176-8834-bf1af4f7e59c', depthOption: 'infinity', ignoreExternalsOption: true, local: '.', remote: "http://svn:8080/svn/${svnUrl}"]], quietOperation: true, workspaceUpdater: [$class: 'UpdateUpdater']])
+    
+    }
+    
+    stage('seelog'){
+        sh label: '', script: 'svn log -vl4'
+    }
+    
+    stage('dryRun'){
+    def Revision = input(
+    id: 'Revision', message: 'Put revision not like 123:234 or 234:123', parameters: [
+    [$class: 'TextParameterDefinition', defaultValue: '0', description: 'From Revision', name: 'From Revision']
+    ])
+    echo ("To Revision: "+Revision)
+   
+    sh label: '', script: "svn --dry-run merge -r ${Revision} ."
+    }
+    
+    stage('merge'){
+    def mergetool = input(message: 'Are you sure want to Rollback build from trunk ?', ok: 'Button',
+                    parameters: [booleanParam(defaultValue: 'true', 
+                    description: 'just push the button', name: 'Yes?')])
+    
+    def Revision = input(
+    id: 'Revision', message: 'Put revision not like 123:234 or 234:123', parameters: [
+    [$class: 'TextParameterDefinition', defaultValue: '0', description: 'From Revision', name: 'From Revision']
+    ])
+    echo ("To Revision: "+Revision)
+    
+    def message = input(
+    id: 'Revision', message: 'Put BSID', parameters: [
+    [$class: 'TextParameterDefinition', defaultValue: 'BS-', description: 'BS ID', name: 'BSID']
+    ])
+    echo ("BS ID: "+message)
+    
+    if (mergetool == true)
+    {
+    sh label: '', script: "svn merge -r ${Revision} ."
+    sh label: '', script: "svn commit -m ${message} ."
+    }
+    else
+    {
+    //echo (You have not follwed complete steps)
+    sh label: '', script: 'exit 1'
+    }
+    
+    }
+
+    
+}
