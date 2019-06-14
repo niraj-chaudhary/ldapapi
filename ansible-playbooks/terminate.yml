@@ -1,0 +1,12 @@
+---
+- name: Terminating single ec2 hosts
+  hosts: local
+  tasks:
+    - action: ec2_facts
+    - name: terminating single instance
+      local_action:
+        module: ec2
+        state: 'absent'
+        region: ap-south-1
+        instance_ids: "{{ ansible_ec2_instance_id }}"
+      delegate_to: localhost

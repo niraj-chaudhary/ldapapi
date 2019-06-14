@@ -1,0 +1,14 @@
+---
+- hosts: local
+  connection: local
+  gather_facts: no
+  tasks:
+      - name: Create a new EC2 key
+        ec2_key:
+            name: cc-interview-neeraj
+            region: ap-south-1
+        register: ec2_key_result
+      - debug: var="{{ ec2_key_result }}"
+      - name: Save private key
+        copy: content="{{ ec2_key_result.key.private_key }}" dest="./aws.neeraj.pem" mode=0600
+        when: ec2_key_result.changed
