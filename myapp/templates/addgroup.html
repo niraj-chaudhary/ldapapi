@@ -9,7 +9,7 @@
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
       </head>
     <header>
-        <div class="logo_inner"><img src="https://www.shopclues.com/blog/wp-content/uploads/2018/08/SC_Black.png" width="100%" alt=""/></div>
+        <div class="logo_inner"><img src="https://www.test.com/blog/wp-content/uploads/2018/08/SC_Black.png" width="100%" alt=""/></div>
         </header>
 
     <body>
@@ -71,11 +71,11 @@
 </section>
 
     {% if motive|string() == 'add' %}
-    <form action="http://ldap-login.shopclues.com/addgrp" method="post">
+    <form action="http://ldap-login.test.com/addgrp" method="post">
     {% elif motive|string() == 'del' %}
-    <form action="http://ldap-login.shopclues.com/delgrp" method="post">
+    <form action="http://ldap-login.test.com/delgrp" method="post">
     {% elif motive|string() == "mod" %}
-    <form action="http://ldap-login.shopclues.com/modgrp" method="post">
+    <form action="http://ldap-login.test.com/modgrp" method="post">
     {% endif %}
 
      <div align="center">
@@ -120,7 +120,7 @@
 
           <br>
          <div class="title">
-         <h1>shopclues.com</h1>
+         <h1>test.com</h1>
         
     
         </form>
