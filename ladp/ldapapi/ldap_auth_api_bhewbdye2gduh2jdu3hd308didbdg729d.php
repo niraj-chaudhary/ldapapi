@@ -8,8 +8,8 @@ if(isset($_POST['username']) && isset($_POST['password']))
         {
         	$user = $_POST['username'];
                 $password = $_POST['password'];
-            	$server = "10.30.73.14";
-            	$dn = "ou=People,dc=shopclues,dc=com";
+            	$server = "localhost";
+            	$dn = "ou=People,dc=example,dc=com";
             	ldap_connect($server);
             	$con = ldap_connect($server);
             	ldap_set_option($con, LDAP_OPT_PROTOCOL_VERSION, 3);
