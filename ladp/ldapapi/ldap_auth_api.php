@@ -8,8 +8,8 @@ if(isset($_POST['username']) && isset($_POST['password']))
     {
     	$user = $_POST['username'];
         $password = $_POST['password'];
-    	$server = "10.30.73.14";
-    	$dn = "ou=People,dc=shopclues,dc=com";
+    	$server = "localhost";
+    	$dn = "ou=People,dc=example,dc=com";
     	ldap_connect($server);
     	$con = ldap_connect($server);
     	ldap_set_option($con, LDAP_OPT_PROTOCOL_VERSION, 3);
@@ -19,7 +19,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
     	$user_dn = ldap_get_dn($con, $user_entry);
 
        	if (ldap_bind($con, $user_dn, $password) === true) {					
-        	$dn2 = "dc=shopclues,dc=com";
+        	$dn2 = "dc=example,dc=com";
     		$user_search2 = ldap_search($con,$dn2, "(&(cn=*)(memberUid=$user))");
     		$user_get2 = ldap_get_entries($con, $user_search2);
 			$groups = array();
