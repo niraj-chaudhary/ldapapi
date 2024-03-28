@@ -9,7 +9,7 @@
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
       </head>
     <header>
-        <div class="logo_inner"><img src="https://www.shopclues.com/blog/wp-content/uploads/2018/08/SC_Black.png" width="100%" alt=""/></div>
+        <div class="logo_inner"><img src="https://www.example.com/blog/wp-content/uploads/2018/08/SC_Black.png" width="100%" alt=""/></div>
         </header>
 
     <body>
@@ -120,7 +120,7 @@
 
           <br>
          <div class="title">
-         <h1>shopclues.com</h1>
+         <h1>example.com</h1>
         
     
         </form>

@@ -6,7 +6,7 @@ String myvar = "<html>"+
 "	<link rel=stylesheet type=text/css href=\"{{ url_for('static', filename='style_1.css') }}\">"+
 "    </head>"+
 "	<header>"+
-"        <div class=\"logo_inner\"><img src=\"http://cdn02.shopclues.net/images/ui/shopclues-logo_new.jpg\" width=\"100%\" alt=\"\"/></div>"+
+"        <div class=\"logo_inner\"><img src=\"http://cdn02.example.net/images/ui/example-logo_new.jpg\" width=\"100%\" alt=\"\"/></div>"+
 "        </div></header>"+
 "    <body>"+
 "        <div id=\"container\">"+
@@ -25,7 +25,7 @@ String myvar = "<html>"+
 "</section>"+
 "            <div id=\"content\">"+
 "                <form method=\"post\" action=\"{{ url_for('adduser') }}\">"+
-"	<h3>ex: If Email id is niraj.kumar@shopclues.com then user name will niraj.kumar</h3></Br>"+
+"	<h3>ex: If Email id is niraj.kumar@example.com then user name will niraj.kumar</h3></Br>"+
 "                  <label for=\"username\">Please enter User Name:</label>"+
 "                  <input type=\"text\" name=\"username\" /><br />"+
 "                  <label for=\"empid\">Please enter your empid:</label>"+
@@ -44,7 +44,7 @@ String myvar = "<html>"+
 "                </form>"+
 "            </div>"+
 "            <div class=\"title\">"+
-"                <h1>shopclues.com</h1>"+
+"                <h1>example.com</h1>"+
 "            </div>"+
 "            </div>"+
 "        </div>"+

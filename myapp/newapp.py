@@ -22,7 +22,7 @@ con = ldap.initialize('ldap://localhost:389')
 # If we want to be associated to an account
 # you can log by binding your account details to your connection
 
-con.simple_bind_s("cn=Manager,dc=example,dc=com", "ncviuciy73te32e23e90//")
+con.simple_bind_s("cn=Manager,dc=example,dc=com", "password")
 
 ########## User Input Variable ####################################
 app = Flask(__name__)
@@ -53,7 +53,6 @@ def adduser():
 	 email = request.form['email']
 	 pwd = request.form['password']
 	 group = request.form['group']
-#def adduser(user,empid,mobileno,email,password,group):
 	user = re.split('@', email)[0]
 
 	E = empid.istitle()
@@ -83,7 +82,7 @@ def adduser():
 	elif group == 'jira_users':
 		gid = "1001"
 	#con = ldap.initialize('ldap://localhost:389')
-	#con.simple_bind_s("cn=Manager,dc=example,dc=com", "ncviuciy73te32e23e90//")
+	#con.simple_bind_s("cn=Manager,dc=example,dc=com", "password")
 ########## performing a simple ldap query ####################################
 	ldap_base = "dc=example,dc=com"
 	query = "(cn=" + user +")"
@@ -126,7 +125,7 @@ def adduser():
 		
 def checkUser(user):
         #con = ldap.initialize('ldap://localhost:389')
-        #con.simple_bind_s("cn=Manager,dc=example,dc=com", "ncviuciy73te32e23e90//")
+        #con.simple_bind_s("cn=Manager,dc=example,dc=com", "password")
         ldap_base = "dc=example,dc=com"
         query = "(cn=" + user +")"
         result = con.search_s(ldap_base, ldap.SCOPE_SUBTREE, query)
